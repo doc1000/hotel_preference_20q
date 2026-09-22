@@ -1,0 +1,65 @@
+
+1) Raw A - B standardized feature differences
+  quiet          -1.000
+  room_size      -0.750
+  walkability    +1.050
+  nightlife      +1.700
+  service        -0.150
+  spa            -0.850
+  beach_access   -1.500
+  value          +0.200
+
+Simplest first question: ask about 'nightlife', because A and B differ most there (+1.70 SD).
+
+2) Global hotel PCA: compound axes that exist in the hotel population
+  PC1: pair separation=-2.62 | room_size +0.46, quiet +0.41, walkability -0.40, nightlife -0.38
+  PC3: pair separation=-0.67 | beach_access +0.67, value +0.56, service -0.32, room_size +0.21
+  PC5: pair separation=+0.64 | room_size +0.80, beach_access -0.35, quiet -0.34, spa -0.25
+
+
+3) Weak prior mean implied by the shortlisted pair
+  quiet          +0.135
+  room_size      +0.131
+  walkability    +0.121
+  nightlife      +0.090
+  service        +0.139
+  spa            +0.095
+  beach_access   +0.081
+  value          +0.009
+
+4) Largest unresolved preference directions
+  Preference PC1: uncertainty=1.760, A/B separation=2.607 | room_size -0.46, quiet -0.39, walkability +0.38, nightlife +0.37
+  Preference PC2: uncertainty=1.365, A/B separation=0.634 | service -0.47, spa -0.43, nightlife -0.39, walkability -0.38
+  Preference PC3: uncertainty=1.075, A/B separation=0.649 | beach_access -0.64, value -0.58, service +0.31, room_size -0.22
+
+5) Candidate questions ranked by expected information gain
+  posterior_PC1    IG=0.487 bits  pair-separation=2.607
+    Would you rather prioritize A's nightlife, walkability, value, or B's beach_access, quiet, room_size?
+  nightlife        IG=0.146 bits  pair-separation=1.700
+    How important is A's nightlife advantage relative to B's other strengths?
+  quiet            IG=0.092 bits  pair-separation=1.000
+    How important is B's quiet advantage relative to A's other strengths?
+  beach_access     IG=0.092 bits  pair-separation=1.500
+    How important is B's beach_access advantage relative to A's other strengths?
+  walkability      IG=0.092 bits  pair-separation=1.050
+    How important is A's walkability advantage relative to B's other strengths?
+
+Current agent-facing summary
+  P(Hotel A preferred) = 0.476
+  P(Hotel B preferred) = 0.524
+  Current important assumptions: quiet (+0.14), service (+0.14), room_size (+0.13)
+  Still uncertain about: value (sd=1.01), service (sd=1.01), spa (sd=1.00)
+  Agent: Hotel B is slightly ahead, but one question could help:
+         Would you rather prioritize A's nightlife, walkability, value, or B's beach_access, quiet, room_size?
+
+6) Demo update: pretend the user chooses the B-side of the first question.
+
+Current agent-facing summary
+  P(Hotel A preferred) = 0.360
+  P(Hotel B preferred) = 0.640
+  Current important assumptions: quiet (+0.27), room_size (+0.27), service (+0.22)
+  Still uncertain about: service (sd=1.00), value (sd=1.00), spa (sd=0.99)
+  Agent: Hotel B is slightly ahead, but one question could help:
+         Would you rather prioritize A's nightlife, walkability, value, or B's beach_access, quiet, room_size?
+
+Done. Read the numbered sections top-to-bottom and stop at any layer you do not need.
