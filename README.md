@@ -13,6 +13,9 @@ A deliberately small, sequential prototype for choosing between two hotels using
 
 Start with [`DISCUSSION.md`](DISCUSSION.md), then read `hotel_preference_demo.py` top-to-bottom.
 
+quick demo video:
+https://youtu.be/LDdYysM7eVw
+
 developed in this conversation:
 https://chatgpt.com/share/6ab2ceca-4670-83e8-8c86-31afb0805a7f
 
